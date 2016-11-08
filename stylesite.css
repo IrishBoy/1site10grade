@@ -1,0 +1,166 @@
+﻿body {   
+background-image: url("3d.jpg")
+}
+ 
+div {
+ margin-bottom: 15px;
+}
+
+.left-column 
+{
+ color:Black;
+ width: 25%;
+ min-height: 100px;
+ background-image: url( "i2.jpg"); 
+ float: left;
+ border: 2px double black;
+}
+
+.header {
+text-align:center;
+color:Red;
+font-size:large;
+height:100px;
+   
+}
+.question {
+float:right;
+background-color: #fcf8e3;
+}
+
+.map_div {
+height: 60%;
+width:52%;
+float:right;
+border: 2px double black;
+}
+
+.interesting{
+float:right;
+/*background-color: #fcf8e3;*/
+width:50%;
+height:100%;
+}
+.bloggood-ru-div
+{
+display: none;
+}
+a.bloggood-ru-ssilka:hover+div
+{
+display: block;
+}
+   
+.img {
+ border-radius: 10px; 
+}
+.b1{
+width:200px;
+float:right;
+}
+.s1{
+width:200px;
+float:right;
+}
+
+.m1{
+width:200px;
+float:right;
+}
+.o1{
+width:200px;
+float:right;
+}
+.history 
+{
+border: 2px double black;
+color:Black;
+font-size:small;
+float:right;
+background-image:url("Kosovskaya-bitva.jpg");
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;    
+width:70%;
+font-style: italic;
+font-weight: 900;
+}
+
+.history1{
+color:Black;
+}
+
+.CultereS{
+float:right;
+background-image:url("культура.jpg");
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;  
+width:50%;
+font-size:large;
+font-style:oblique;
+font-weight:900;
+}
+
+.slidingDiv{
+float:right;
+background-color: #fcf8e3;
+width:100%;
+text-align:left;
+}
+
+.show_hide{
+text-align:left;
+display:inline;
+width:65px;
+}
+
+.About{    
+float:right;
+background-color: #fcf8e3;
+}
+
+.right-column 
+{
+width: 50%;
+min-height: 100px;
+float: right;
+height:80%;
+color:Black;
+font-style: italic;
+font-weight: 900;
+background-image:url("wood.jpg");
+}
+
+.tt {
+color: green; 
+font-weight: bold;
+    }
+    
+.ff {
+ color: red; 
+ font-weight: bold;
+    }
+    
+.victor 
+{
+ height:315px;   
+ width: 50%;
+ float:right;
+ border: 2px double black;
+ background-image:url("qe1.jpg");
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;    
+}
+
+.slidingDiv 
+{
+    float:left;
+    width:50%;
+}
+
+.show_hide
+{
+    float:left;
+    width:50%;
+}

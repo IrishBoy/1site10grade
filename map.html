@@ -1,0 +1,61 @@
+<html>
+<head>
+<meta charst="utf-8">
+<meta name="keywords" content="сербия, туризм, информация о сербии">
+<link type="text/css" rel="stylesheet" href="stylesite.css"/>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false"></script>
+</head>
+<body>
+<div class="header"><h1>Карта Сербии</h1></div>
+<div id="map_div" class="map_div" style="height: 400px;"></div>
+<div >  
+    <script>
+        google.maps.event.addDomListener(window, "load", function () {
+            var locations = [
+        [44.80401, 20.46513, 'test 1', '87', 'Белград – столица Сербии; атмосферный запоминающийся город, сохранивший свою самобытность и культуру на протяжении многих веков. Один из самых старых городов во всей Европе, он неустанно привлекает туристов к своим стенам.Белград – крупнейший промышленный, культурный и экономический центр Сербии. Он раскинулся на Балканском полуострове, на берегу реки Сава. Эта водная артерия является правым притоком Дуная и соединяет между собой три европейские столицы – Любляну, Загреб и Белград. Именно в Белграде Сава впадает в Дунай, что дает возможность гостям и местным жителям наслаждаться великолепным зрелищем слияния двух рек.'],
+        [45.25167, 19.83694, 'test 2', '88', 'Нови-Сад — город, расположенный на севере Сербии на берегу Дуная, административный центр автономного края Воеводина.Вся Европа знает музыкальный летний рок-фестиваль EXIT, который с 2000 г. проходит в крепости XVII в. на большом острове посреди Дуная и собирает около 200 тыс. зрителей. Богемная атмосфера крепости Петроварадин распространяется и на город, расположенный по обоим берегам реки. Может быть, Нови-Сад и является вторым по величине городом Сербии, однако ему принадлежит первенство по динамичности жизни.'],
+        [43.32472, 21.90333, 'test 3', '89', 'Ниш — самый крупный город на юге Сербии и третий по величине город в стране. Старейший город на Балканах — Ниш — с древних времен считался воротами между Востоком и Западом. Здесь родился Константин Великий — первый христианский римский император, основатель Константинополя. В Нише находится одна из старейших христианских церквей в Сербии, датируемая 4 веком н. э. В 2013 году в Нише пройдет экуменическая Ассамблея христианских церквей в честь 1700-летия Миланского эдикта.']
+    ];
+            var map = new google.maps.Map(document.getElementById("map_div"), {
+                center: new google.maps.LatLng(44.80401, 20.46513),
+                zoom: 8,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+            var infoWindow = new google.maps.InfoWindow(); // 2: infoWindow is global
+            var markerClickHandler = function () {
+                infoWindow.setContent(locations[this.dataId][4]); // 3: use dataId stored in marker to fetch content from locations array
+                infoWindow.open(map, this);
+            };
+            var bounds = new google.maps.LatLngBounds();
+            var i;
+            for (i = 0; i < locations.length; i++) {
+                var latlng = new google.maps.LatLng(locations[i][0], locations[i][1]);
+                var marker = new google.maps.Marker({
+                    position: latlng,
+                    map: map,
+                    title: locations[i][2],
+                    dataId: i // 1: assign an id
+                });
+                bounds.extend(latlng);
+                google.maps.event.addListener(marker, "click", markerClickHandler);
+            }
+            map.fitBounds(bounds);
+        });
+
+    </script>
+    </div> 
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key= AIzaSyDcbC3lYNxKP45B8xwDwEThVN7mr3MUX90 
+&signed_in=true&callback=initMap"></script>
+<div class="left-column">
+        <ul>
+       <li><a href="index.html">Главная</a></li>
+        <li> <a href="history.html">История Сербии </a></li>
+        <li><a href="CultureS.html">Культура </a></li>
+        <li><a href="map.html">Карта Сербии</a></li>
+        <li><a href="interesting.html"> Интересные факты</a></li>
+        <li><a href="quez.html">Викторина</a></li>
+        </ul>
+        </div>
+</body>
+</html>

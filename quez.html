@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+<html>
+<head>
+<link type="text/css" rel="stylesheet" href="stylesite.css"/>
+</head>
+<body>
+<div class="header"><h1>Викторина</h1></div>
+<div class="victor">
+<script>
+var questions = [ // Сначала вопрос, потом варианты через запятую, потом правильный ответ
+["Столица Сербии?",
+"Варшава",
+"Гдыня",
+"Белград",
+"Затрудняюсь ответить",
+3],
+["В каком году распался Государственный союз Сербии и Черногории?",
+"2006",
+"2005",
+"2007",
+1],
+["С кем на севере граничит Сербия?",
+"Болгария",
+"Румыния",
+"Венгрия",
+3],
+[ "Какие из этих народов/империй никогда не захватывали территорию Сербии?",
+"Кельты",
+"Османская Империя",
+"Мавры",
+3],
+["Какой из городов находится южнее?",
+"Зренянин",
+"Ниш",
+"Белград",
+2],
+["Кто такой Васко Попа?",
+"Политик",
+"Режиссёр",
+"Поэт",
+3],
+], qQuantity = questions.length, tAnswers = 0, wAnswers = 0;
+ 
+function goNext(N) { // N = номер вопроса
+        document.getElementById('qBlock').innerHTML = ""; // Очищаем блок вопросов
+    var qElem = questions[N].length-2, i=1; // Кол-во в массиве минус вопрос и счетчик
+    var e = document.getElementById('qBlock');
+    var addQ = document.createElement('h3'); // заголовок, id из номера вопроса
+        addQ.id = 'head' + N;
+        e.appendChild(addQ);
+        document.getElementById('head' + N).innerHTML = questions[N][i-1]; // вписываем вопрос
+    while (qElem >= i) {
+    var addP = document.createElement('p'); // абзацы
+        addP.id = 'p' + i;
+        e.appendChild(addP);
+        var addInput = document.createElement('input'); // инпуты
+        addInput.type = 'radio';
+        addInput.name = 'a';
+        addInput.value = i;
+        document.getElementById('p' + i).appendChild(addInput);
+        document.getElementById('p' + i).insertAdjacentHTML("BeforeEnd", ' '+questions[N][i]); // вопросы
+        i++;
+}
+        document.getElementById('btn').innerHTML = "<input type='button' value='Проверить' onclick='submit("+N+")' />";
+}
+ 
+    function submit(N) { // Проверяем ответы
+    var varQuantity = (document.getElementsByName('a').length), oneVar = 0;
+    while (oneVar <= varQuantity) {
+        if (document.getElementsByName('a')[oneVar].checked == false) {
+            oneVar++;
+}
+        else {
+            var all = questions[N].length-1;
+            var t = questions[N][all]; // правильный ответ
+        if (document.getElementsByName('a')[oneVar].value == t) {
+                document.getElementById('p' + t).className = 'tt';
+                tAnswers++;
+}
+         else {
+            var ff = oneVar+1;
+                document.getElementById('p' + t).className = 'tt';
+                document.getElementById('p' + ff).className = 'ff';
+                wAnswers++;
+}
+break;
+}
+}
+        N++;
+        if (N == qQuantity) {
+            document.getElementById('btn').innerHTML = "<input type='button' id='next' value='Перейти к результатам' onclick='toResults()' />";
+                            } 
+        else {
+            document.getElementById('btn').innerHTML = "<input type='button' id='next' value='Следующий вопрос' onclick='goNext("+N+")' />";
+             }
+}
+
+        function toResults() {
+            document.getElementById('qBlock').innerHTML = "<h3>Тест пройден!</h3>";
+            document.getElementById('btn').innerHTML = "<h4>Результаты:</h4>Правильных ответов: "+tAnswers+"<br>Неправильных ответов: "+wAnswers+"<p>Желаете пройти тест еще раз?</p><input type='button' value='Приступим!' onclick='goNext(0)' />";
+            tAnswers = 0, wAnswers = 0;
+}
+</script>
+ 
+<div id="qBlock"><h2>Тест</h2>
+</div>
+<div id='btn'>
+<input type="button" value="Приступим!" onclick="goNext(0)" />
+</div>
+</div>
+<div class="left-column">
+        <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li> <a href="history.html">История Сербии </a></li>
+        <li><a href="CultureS.html">Культура </a></li>
+        <li><a href="map.html">Карта Сербии</a></li>
+        <li><a href="interesting.html"> Интересные факты</a></li>
+        <li><a href="quez.html">Викторина</a></li>
+        </ul>
+        </div>
+</body>
+</html>
